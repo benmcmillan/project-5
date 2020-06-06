@@ -117,7 +117,7 @@ app.post('/deletetodos', (req, res) => {
   db.collection(collName).deleteMany({}, function(err, obj) {
     if (err) throw err;
     //number of documents deleted
-    console.log(obj.result.n + " To-Do(s) deleted");
+    console.log("All To-Do(s) deleted");
   });
 
   return res.status(200).send({
