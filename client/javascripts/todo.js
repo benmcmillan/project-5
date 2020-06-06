@@ -87,6 +87,14 @@ let getToDo = () => {
 let deleteAll = () => {
   //delete all comments from db
   //localStorage.removeItem("commentsList") TBA, have to use mongodb XC
+  //delete a comment from db
+  $.ajax({
+      method: "POST",
+      url: "http://localhost:8888/deletetodos"
+    })
+    .done(function(msg) {
+      console.log("All To-Do(s) deleted: " + msg);
+    });
 
   window.location.reload();
 }

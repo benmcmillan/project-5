@@ -91,7 +91,7 @@ let getComment = () => {
 let deleteAll = () => {
   //delete all comments from db
   //localStorage.removeItem("commentsList") TBA, have to use mongodb
-  
+
   window.location.reload();
 }
 

@@ -86,7 +86,7 @@ app.post('/addtodo', (req, res) => {
       console.log(`record inserted ${result}`)
       return res.status(201).send({
         status_code: 200,
-        message: 'todo added successfully',
+        message: 'To-Do added successfully',
         todo
       })
     })
@@ -102,26 +102,27 @@ app.post('/deletetodo/:data', (req, res) => {
   }, function(err, obj) {
     if (err) throw err;
     //number of documents deleted
-    console.log(obj.result.n + " document(s) deleted");
+    console.log(obj.result.n + " To-Do(s) deleted");
   });
 
   return res.status(200).send({
     status_code: 200,
-    message: "todo deleted",
-  })
+    message: "To-Do deleted",
+  });
 });
 
-//Endpoint to Delete all tel numbers
-app.delete('/deletenums', (req, res) => {
+//Endpoint to Delete all todos
+app.post('/deletetodos', (req, res) => {
+  console.log("request to delete all has been recieved!");
   db.collection(collName).deleteMany({}, function(err, obj) {
     if (err) throw err;
     //number of documents deleted
-    console.log(obj.result.n + " document(s) deleted");
+    console.log(obj.result.n + " To-Do(s) deleted");
   });
 
   return res.status(200).send({
     status_code: 200,
-    message: "phonebook collection is empty"
+    message: "To-Do collection is empty"
   })
 });
 
